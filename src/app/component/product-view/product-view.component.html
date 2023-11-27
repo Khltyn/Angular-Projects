@@ -1,0 +1,37 @@
+<!-- * Product Display -->
+
+<div class="container-fluid" style="background-color: black">
+  <div class="row">
+    <div class="col-md-2 mt-3" *ngFor="let item of data">
+      <div class="card mt-2">
+        <div class="card-body">
+          <div class="card-img-actions">
+            <img
+              routerLink="/product-detail/{{ item.id }}"
+              src="{{ item.image }}"
+              class="card-img img-fluid"
+            />
+          </div>
+        </div>
+        <div class="card-body bg-light text-center">
+          <div class="h6" style="max-height: 1em">
+            <a class="text-default">{{ item.title }}</a>
+          </div>
+          <h3 class="mb-0 font-weight-semibold">$ {{ item.price }}</h3>
+          <button
+            routerLink="/product-detail/{{ item.id }}"
+            class="btn btn-sm btn-dark mt-2"
+          >
+            <i class="fa fa-solid fa-info mr-2"></i>&nbsp;&nbsp;View details
+          </button>
+          <button (click)="addtocart(item)" class="btn btn-sm btn-warning mt-2">
+            <i class="fa fa-cart-plus mr-2"></i>Add to cart</button
+          >&nbsp;
+          <button (click)="removeitem(item)" class="btn btn-sm btn-danger mt-2">
+            <i class="fa fa-remove mr-2"></i>Remove Item
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
